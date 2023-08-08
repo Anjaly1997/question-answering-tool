@@ -28,6 +28,7 @@ function InputText({onSubmit}) {
         onChange={(e)=>setQuestion(e.target.value)}
         />
         <br />
+        <br />
         <button onClick={handleSubmit}>Submit</button> <span>    </span>
         <button>Re-run</button>
     </div>

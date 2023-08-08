@@ -7,6 +7,7 @@ function App() {
 
 const [answer, setAnswer] = useState('');
 
+
 const handleUserInput = ({text,question}) =>{
   axios
   .post("https://api-inference.huggingface.co/models/deepset/roberta-base-squad2", {
@@ -14,11 +15,9 @@ const handleUserInput = ({text,question}) =>{
     context: text,
   })
   .then((response) => {
-    // Update the answer state with the relevant answer
     setAnswer(response.data["answer"]);
   })
   .catch((error) => {
-    // Handle errors if any
     console.error("Error fetching answer:", error);
   });
 };
