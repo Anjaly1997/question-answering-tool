@@ -1,34 +1,16 @@
 import './App.css';
-import AppBar from './components/AppBar'
-import InputText from './components/InputText';
-import DisplayAnswer from './components/DisplayAnswer';
-import { useState } from 'react';
-import axios from 'axios';
+import AppBar from './components/AppBar';
+import CustomTabPanel from './components/CustomTabsPanel'
+
 function App() {
-
-const [answer, setAnswer] = useState('');
-
-
-const handleUserInput = ({text,question}) =>{
-  axios
-  .post("https://api-inference.huggingface.co/models/deepset/roberta-base-squad2", {
-    question,
-    context: text,
-  })
-  .then((response) => {
-    setAnswer(response.data["answer"]);
-  })
-  .catch((error) => {
-    console.error("Error fetching answer:", error);
-  });
-};
+ 
 
   return (
-    <div className="App">
+    <div className='App'>
       <AppBar />
-      <h1>Question-anwsering-tool</h1>
-      <InputText onSubmit = {handleUserInput}/>
-      <DisplayAnswer answer={answer}/>
+      <h1>Question Answering Tool</h1>
+      <h3>Empowering Curiosity and Learning: Your Gateway to Precise Answers – The Question-Answering Tool</h3>
+     <CustomTabPanel/>
     </div>
   );
 }
