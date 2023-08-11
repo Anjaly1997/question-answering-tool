@@ -1,4 +1,5 @@
 import './App.css';
+import AppBar from './components/AppBar'
 import InputText from './components/InputText';
 import DisplayAnswer from './components/DisplayAnswer';
 import { useState } from 'react';
@@ -24,6 +25,7 @@ const handleUserInput = ({text,question}) =>{
 
   return (
     <div className="App">
+      <AppBar />
       <h1>Question-anwsering-tool</h1>
       <InputText onSubmit = {handleUserInput}/>
       <DisplayAnswer answer={answer}/>
