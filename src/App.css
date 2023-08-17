@@ -11,3 +11,15 @@ h1{
   margin-bottom: 0;
   font-weight: 500;
 }
+h3{
+  color: #7b62e2;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+.active-tab {
+  color: #ffffff; 
+}
+
+.inactive-tab {
+  color: #6f79cc; 
+}

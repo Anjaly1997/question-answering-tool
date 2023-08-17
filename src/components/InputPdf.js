@@ -5,49 +5,44 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Input from '@mui/material/Input';
-import DisplayAnswer from './DisplayAnswer';
 
-function InputText({ onSubmit, onReRun }) {
-  const [text, setText] = useState('');
+function InputPDF({ onSubmit, onReRun }) {
+  const [pdfFile, setPdfFile] = useState(null);
   const [question, setQuestion] = useState('');
 
+  const handlePdfChange = (event) => {
+    const selectedFile = event.target.files[0];
+    setPdfFile(selectedFile);
+  };
+
   const handleSubmit = () => {
-    onSubmit({ text, question });
+    onSubmit({ pdfFile, question });
   };
 
   const handleReRun = () => {
-    setText('');
+    setPdfFile(null);
     setQuestion('');
-    onReRun(); 
+    onReRun(); // Call the onReRun function from props
   };
 
   const card = (
     <React.Fragment>
       <CardContent sx={{ padding: '20px', textAlign: 'left' }}>
-      <Typography variant="body1" gutterBottom color="#ffffff">
-          Context:
+        <Typography variant="h6" gutterBottom color="#ffffff">
+          Upload PDF:
         </Typography>
-        <TextareaAutosize
-          minRows={8}
-          maxRows={20}
+        <input
+          type="file"
+          accept=".pdf"
+          onChange={handlePdfChange}
           style={{
-            width: '96%',
-            maxWidth: '96%',
             marginBottom: '10px',
-            padding: '10px',
-            backgroundColor: 'transparent',
+            backgroundColor: '#141920', // Use the same background color as InputText
             color: '#ffffff',
-            borderRadius:'5px',
-            fontSize:'15px',
-            border: '2px solid #3b3e42',
           }}
-          placeholder="Enter the text here..."
-          value={text}
-          onChange={(e) => setText(e.target.value)}
         />
-        <Typography variant="body1" gutterBottom color="#ffffff">
+         <Typography variant="body1" gutterBottom color="#ffffff">
           Question:
         </Typography>
 
@@ -108,13 +103,12 @@ function InputText({ onSubmit, onReRun }) {
   return (
     <div>
       <Box sx={{ minWidth: 275, maxWidth: '800px', margin: '0 auto' }}>
-      <Card variant="outlined" sx={{ backgroundColor: '#141920' }}>
+        <Card variant="outlined" sx={{ backgroundColor: '#141920' }}>
           {card}
         </Card>
       </Box>
-      
     </div>
   );
 }
 
-export default InputText;
+export default InputPDF;

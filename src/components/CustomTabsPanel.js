@@ -6,9 +6,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import InputText from './InputText';
+
 import DisplayAnswer from './DisplayAnswer';
 import axios from 'axios';
-
+import InputPdf from './InputPdf';
 
 
 
@@ -91,6 +92,10 @@ export default function CustomTabs() {
         <CustomTabPanel value={value} index={0}>
         <InputText onSubmit={handleUserInput} onReRun={handleReRun} />
         {showAnswer && <DisplayAnswer answer={answer} />}
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={1}>
+        <InputPdf onSubmit={handleUserInput} onReRun={handleReRun} />
+        {/* {showAnswer && <DisplayAnswer answer={answer} />} */}
         </CustomTabPanel>
         
         

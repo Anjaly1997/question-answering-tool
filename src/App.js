@@ -1,6 +1,7 @@
 import './App.css';
 import AppBar from './components/AppBar';
 import CustomTabPanel from './components/CustomTabsPanel'
+import DisplayAnswer from './components/DisplayAnswer';
 
 function App() {
  
