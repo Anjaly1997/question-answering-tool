@@ -10,6 +10,7 @@ import InputText from './InputText';
 import DisplayAnswer from './DisplayAnswer';
 import axios from 'axios';
 import InputPdf from './InputPdf';
+import InputUrl from './InputUrl';
 
 
 
@@ -95,6 +96,10 @@ export default function CustomTabs() {
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
         <InputPdf onSubmit={handleUserInput} onReRun={handleReRun} />
+        {/* {showAnswer && <DisplayAnswer answer={answer} />} */}
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={2}>
+        <InputUrl onSubmit={handleUserInput} onReRun={handleReRun} />
         {/* {showAnswer && <DisplayAnswer answer={answer} />} */}
         </CustomTabPanel>
         
